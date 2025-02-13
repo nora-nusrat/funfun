@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutesy Chocolate Valentine</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffc0cb;
+            background-image: url('https://i.imgur.com/yoursampleimage.jpg'); /* Replace with a cutesy background image URL */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn {
+            background-color: #ff4b5c;
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+        .btn:hover {
+            background-color: #e04350;
+        }
+        .hidden {
+            display: none;
+        }
+        .chocolate {
+            position: absolute;
+            font-size: 30px;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn" id="study-btn" onclick="showFailMessage()">Ilma, pora lekha koro 📚</button>
+        <button class="btn hidden" id="fail-msg">Or gonna fail! 😈</button>
+        <button class="btn" id="valentine-btn" onclick="showManMessage()">Be my Valentine? 💖</button>
+        <button class="btn hidden" id="man-msg">Find a man... it's high time! 😂</button>
+    </div>
+    <script>
+        function showFailMessage() {
+            document.getElementById("study-btn").style.display = "none";
+            document.getElementById("fail-msg").classList.remove("hidden");
+        }
+        function showManMessage() {
+            document.getElementById("valentine-btn").style.display = "none";
+            document.getElementById("man-msg").classList.remove("hidden");
+        }
+        function spawnChocolates() {
+            for (let i = 0; i < 20; i++) {
+                let chocolate = document.createElement("div");
+                chocolate.classList.add("chocolate");
+                chocolate.innerHTML = "🍫";
+                document.body.appendChild(chocolate);
+                chocolate.style.left = Math.random() * 100 + "vw";
+                chocolate.style.top = Math.random() * 100 + "vh";
+                chocolate.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            }
+        }
+        spawnChocolates();
+    </script>
+</body>
+</html>
